@@ -17,7 +17,7 @@ DOWNLOAD_LIST="$MMS_WORK_DIR/download.list"
 SOUND_FILE="/usr/share/sounds/librem5/stereo/message-new-instant.oga"
 
 #Modem number using in mmcli -m 
-MODEM_NUM="1";
+MODEM_NUM=`mmcli -L|awk '{print $1}'|awk -F '/' '{print $6}'`;
 #Interface as found in ip addr (must be connected with data to the service provider network)
 INTERFACE="wwan0";
 
