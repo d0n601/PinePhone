@@ -1,8 +1,10 @@
 # PinePhone  
-This repo contains my notes for using the [PinePhone](https://www.pine64.org/pinephone/). It includes some steps for setting up [Arch Linux](https://github.com/dreemurrs-embedded/Pine64-Arch) the way I like it, and some workarounds to compensate for things that aren't quite working yet on the [PinePhone](https://www.pine64.org/pinephone/) out of the box.These notes are mainly for me, but they're up here incase they may be useful to anyone else :).
+This repo contains my notes for using the [PinePhone](https://www.pine64.org/pinephone/). It includes some steps for setting up [Arch Linux](https://github.com/dreemurrs-embedded/Pine64-Arch) the way I like it, and some workarounds to compensate for things that aren't quite working yet on the [PinePhone](https://www.pine64.org/pinephone/) out of the box. These notes are mainly for me, but they're up here incase they may be useful to anyone else :)
 
 
 ![neofetch_pinephone](https://user-images.githubusercontent.com/8961705/133648326-79f331c2-b74b-4833-bcfa-caf28118d444.png)
+
+I've been using my [PinePhone](https://www.pine64.org/pinephone/) as my daily driver since July 1st, 2021.
 
 
 ## Installation  
