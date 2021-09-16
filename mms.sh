@@ -1,6 +1,6 @@
 #!/bin/bash
 #Purpose: Download then try to extract data from MMS messages
-#Depends: curl, recoverjpeg, libnotify-bin, sox
+#Depends: curl, recoverjpeg, pulseaudio, libnotify-bin, sox
 
 #Proxy URL / Port
 #This is the mms apn settings from you service provider
@@ -9,14 +9,13 @@ PROXYURL="proxy.mobile.att.net"
 PROXYPORT="80"
 
 #Where to store the mms files
-MMS_STORE_DIR="/home/manjaro/mms"
+MMS_STORE_DIR="/home/alarm/mms"
 MMS_WORK_DIR="$MMS_STORE_DIR/temp"
 DOWNLOAD_LIST="$MMS_WORK_DIR/download.list"
 
 #Alert/notification sound file (must be playable with the "play" command)
 SOUND_FILE="/usr/share/sounds/librem5/stereo/message-new-instant.oga"
-
-#Modem number using in mmcli -m 
+ 
 MODEM_NUM=`mmcli -L|awk '{print $1}'|awk -F '/' '{print $6}'`;
 #Interface as found in ip addr (must be connected with data to the service provider network)
 INTERFACE="wwan0";
@@ -67,19 +66,20 @@ function download_messages() {
         echo "TO: $TO" >> $MMS_STORE_DIR/$FILENAME_$DATE/$FILENAME.info
         echo "MESSAGE:" >> $MMS_STORE_DIR/$FILENAME_$DATE/$FILENAME.info
         echo $(cat -v $MMS_WORK_DIR/$FILENAME.mms |tail -1 |grep "text"|sed "s/.*.txt\^@//ig") >> $MMS_STORE_DIR/$FILENAME_$DATE/$FILENAME.info
-        recoverjpeg -b1 $MMS_WORK_DIR/$FILENAME.mms -o $MMS_STORE_DIR/$FILENAME_$DATE -f $FILENAME.jpg
+	recoverjpeg -b1 $MMS_WORK_DIR/$FILENAME.mms -o $MMS_STORE_DIR/$FILENAME_$DATE -f $FILENAME.jpg
 
     done
     #rm "$MMS_WORK_DIR/*.mms"
     mv $MMS_WORK_DIR/*.mms $MMS_WORK_DIR/$DATE
+    chown -R  alarm:alarm $MMS_WORK_DIR
 }
     
     
 IP=$(ip a show dev wwan0 | grep "inet" | head -n 1)
 if [ -z "$IP" ] ; then
     echo "I have no cellular IP address! Please connect to mobile data"
-    notify-send "I have no cellular IP address! Please connect to mobile data"
-    play $SOUND_FILE &> /dev/null
+    runuser -l alarm -c '/usr/bin/notify-send "I have no cellular IP address! Please connect to mobile data"'
+    runuser -l alarm -c '/usr/bin/paplay $SOUND_FILE &> /dev/null'
     exit
 else
     echo "getting messages from modem"
@@ -91,7 +91,7 @@ else
         build_download_list;
         echo "Downloading mms messages and extracting data"
         download_messages;
-        notify-send "MMS Downloaded from $FROM"
-        paplay $SOUND_FILE
+        runuser -l alarm -c "/usr/bin/notify-send 'MMS Downloaded from $FROM'"
+        runuser -l alarm -c "/usr/bin/paplay $SOUND_FILE"
     fi
 fi
