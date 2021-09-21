@@ -79,11 +79,12 @@ While there aren't many applications with a GUI built for mobile devices, it's h
 
 
 ### Alarm Clock  
-Right now the alarm clock won't wake the phone from deep sleep, which means it will not work as an alarm clock. Currently Posh users can install the [birdie](https://github.com/Dejvino/birdie) app instead, which works excellent. I [forked](https://github.com/d0n601/birdie) it to change the alarm sound to the more familar Ubuntu Touch alarm I'm used to, and to increase the snooze time significantly ;)
-0. Install dependencies if you've not done so already via `sudo pacman -S python-pip make gcc`.
-2. Clone the original, or in this case my fork, via `git clone https://github.com/d0n601/birdie`.
-3. Move into the directory `cd birdie`.
-4. Install the dependencies via `pip3 install -r requirements.txt`.
+Right now the alarm clock won't wake the phone from deep sleep, which means it will not work as an alarm clock. Currently Posh users can install the [birdie](https://github.com/Dejvino/birdie) app instead, which works excellent. I [forked](https://github.com/d0n601/birdie) it to change the alarm sound to the more familar Ubuntu Touch alarm I'm used to, and to increase the snooze time significantly ;)  
+
+1. Install dependencies if you've not done so already via `sudo pacman -S python-pip make gcc`.  
+2. Clone the original, or in this case my fork, via `git clone https://github.com/d0n601/birdie`.  
+3. Move into the directory `cd birdie`.  
+4. Install the dependencies via `pip3 install -r requirements.txt`.  
 
 
 ### Modem Losing Connection  
