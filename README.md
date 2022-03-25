@@ -104,7 +104,7 @@ fi
 
 
 ### MMS 
-Sending and recieving MMS now works simply by enabling the settings in Chatty and having `mms-tng` installed [source](https://github.com/dreemurrs-embedded/Pine64-Arch/wiki/MMS).
+Sending and recieving MMS now works simply by enabling the settings in Chatty and having `mmsd-tng` installed [source](https://github.com/dreemurrs-embedded/Pine64-Arch/wiki/MMS).
 
 
 
