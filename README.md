@@ -103,18 +103,8 @@ fi
 3. Enable cron to run every minute via `sudo crontab -e` and add `* * * * * /home/alarm/test-and-connect-modem.sh`.
 
 
-### MMS ~~(Receiving) ~~
+### MMS 
 Sending and recieving MMS now works simply by enabling the settings in Chatty and having `mms-tng` installed [source](https://github.com/dreemurrs-embedded/Pine64-Arch/wiki/MMS).
 
-
-~~0. Install PulseAudio (already done in Bluetooth Audio Setup section).
-~~1. Install `recoverjpeg` via [https://aur.archlinux.org/packages/recoverjpeg/](https://aur.archlinux.org/packages/recoverjpeg/)
-  ~~1. Clone with `git clone https://aur.archlinux.org/recoverjpeg.git`.
-  ~~2. Make the package via `cd ./recoverjpeg && makepkg -A`.
-  ~~3. Install via  `sudo pacman -S *.gz`
-~~2. Download the [mms polling script](https://github.com/d0n601/PinePhone/blob/main/mms.sh) called `mms.sh` (modify as needed if you're not using Arch).
-~~3. Set privileges and ownership of script `sudo chown root:root mms.sh
- && sudo chmod 700 mms.sh`.
-~~3. Enable cron to run every minute via `sudo crontab -e` and add `* * * * * /home/alarm/mms.sh`.
 
 
